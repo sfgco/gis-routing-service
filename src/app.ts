@@ -26,7 +26,6 @@ app.use(
 );
 // middleware routers
 app.use(express.json());
-// i18nextMiddleware initlaization
 
 // Routes handller
 app.use("/driver", driverRouter);

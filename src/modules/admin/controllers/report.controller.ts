@@ -14,7 +14,7 @@ export const report1 = async (
   next: NextFunction
 ) => {
   try {
-    return res.status(201).json({ message: "Report 1 generated successfully" });
+    return res.status(200).json({ message: "Not Implemented" });
   } catch (error) {
     next(error);
   }

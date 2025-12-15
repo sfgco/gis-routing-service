@@ -18,7 +18,6 @@ export class HttpError extends Error {
 
 export class UnauthorizedError extends HttpError {
   status = HttpStatus.UNAUTHORIZED;
-
   constructor(message: string, res: Response) {
     super(message);
     res.setHeader("www-authenticate", "Bearer");

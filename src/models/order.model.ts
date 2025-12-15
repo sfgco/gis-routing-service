@@ -49,6 +49,13 @@ const OrderSchema = new Schema(
       unique: true,
     },
     location: pointSchema,
+    status: {
+      type: String,
+      enum: status,
+      default: "order.client.send",
+    },
+    city: { type: mongoose.Schema.Types.ObjectId, ref: "Location" },
+    region: { type: mongoose.Schema.Types.ObjectId, ref: "Location" },
   },
   { timestamps: true }
 );
