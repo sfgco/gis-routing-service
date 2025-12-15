@@ -1,0 +1,33 @@
+org: eayni
+app: eayni-backend
+service: gis-routing-service
+
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
+
+custom:
+  esbuild:
+    minify: true
+    watch:
+      # anymatch-compatible definition (https://github.com/es128/anymatch)
+      pattern: ["./index.ts", "src/**/*.ts"] # default .
+      ignore: [".serverless/**/*", "dist"] # default ['.build', 'dist', 'node_modules']
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  memorySize: 1024 # optional, in MB, default is 1024
+  iamRoleStatements:
+    - Effect: Allow
+      Resource: "*"
+      Action:
+        - ses:*
+  environment:
+    MONGO_URI: ${param:MONGO_URI}
+
+functions:
+  api:
+    handler: src/index.handler
+    events:
+      - httpApi: "*"
