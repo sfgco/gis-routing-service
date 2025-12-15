@@ -96,7 +96,17 @@ gis-routing-service/
 
 ## Testing
 
-Add your testing instructions here (e.g., using Jest, Mocha, etc.).
+Unit tests are written using [Jest](https://jestjs.io/) and [ts-jest](https://kulshekhar.github.io/ts-jest/).
+
+To run tests:
+
+```bash
+pnpm test
+# or
+npm test
+```
+
+Test files are located in the `src/**/__tests__` directories.
 
 ## Contributing
 
