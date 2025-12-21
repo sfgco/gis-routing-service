@@ -59,4 +59,10 @@ const OrderSchema = new Schema(
   },
   { timestamps: true }
 );
+
+
+
+OrderSchema.index({ location: "2dsphere" });
+
+
 export const OrderModel = mongoose.model<Order>("Order", OrderSchema);
